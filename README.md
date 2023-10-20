@@ -1,6 +1,6 @@
 # Recurrent Appearance Flow for Occlusion-Free Virtual Try-On (OF-VTON)
 
-
+## Introduction
 Image-based virtual try-on aims at transferring a target in-shop
 garment onto a reference person, which has garnered significant
 attention from the research communities recently. However, previous methods have faced severe challenges in handling occlusion
@@ -19,3 +19,25 @@ and selection mechanism. Experimental results demonstrate that our
 proposed OF-VTON significantly outperforms existing state-of-theart methods by mitigating the impact of occlusion problems.
 
 ![baseline](asserts/tryon_baseline.png)
+
+## Environment
+* pytorch(1.4.0)
+* torchvision
+* scipy
+* Pillow
+* einops
+* opencv-python
+
+## Getting Started
+### Data Preperation
+We provide our **dataset files** , **extracted keypoints files** and **extracted parsing files**  for convience.
+
+[Data Preperation](https://www.google.com)
+
+## Pretrained models
+Download the models below and put it under `checkpoint/`
+
+[RAFD](https://www.google.com) | [MISS](https://www.google.com)
+
+## Test the model
+`python test.py --name test`
