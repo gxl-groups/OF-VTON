@@ -24,3 +24,10 @@ ExportedObj/
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# ============ #
+# datas #
+# ============ #
+datasets/
+checkpoints/
+VITON_testdata.zip

@@ -32,12 +32,12 @@ proposed OF-VTON significantly outperforms existing state-of-theart methods by m
 ### Data Preperation
 We provide our **dataset files** , **extracted keypoints files** and **extracted parsing files**  for convience.
 
-[Data Preperation](https://www.google.com)
+[Data Preperation](https://drive.google.com/drive/folders/1VH-i6CZ0AdycHT_rSW0tE2xJVx1rCHYh?usp=share_link)
 
 ## Pretrained models
 Download the models below and put it under `checkpoint/`
 
-[RAFD](https://www.google.com) | [MISS](https://www.google.com)
+[OFVTON-checkpoints](https://drive.google.com/file/d/1mg8ogkEee3u1WeFJEfmuJkPqQ9pQqWUT/view?usp=share_link)
 
 ## Test the model
 `python test.py --name test`
