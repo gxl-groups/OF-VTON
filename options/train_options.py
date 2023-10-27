@@ -3,16 +3,13 @@ from .base_options import BaseOptions
 class TrainOptions(BaseOptions):
     def initialize(self):
         BaseOptions.initialize(self)
-        # for displays
-        self.parser.add_argument('--launcher', choices=['none', 'pytorch'], default='none',help='job launcher')
+
         self.parser.add_argument('--local_rank', type=int, default=0)
 
         self.parser.add_argument('--display_freq', type=int, default=100, help='frequency of showing training results on screen')
         self.parser.add_argument('--print_freq', type=int, default=100, help='frequency of showing training results on console')
         self.parser.add_argument('--save_latest_freq', type=int, default=1000, help='frequency of saving the latest results')
         self.parser.add_argument('--save_epoch_freq', type=int, default=10, help='frequency of saving checkpoints at the end of epochs')
-        self.parser.add_argument('--no_html', action='store_true', help='do not save intermediate training results to [opt.checkpoints_dir]/[opt.name]/web/')
-        self.parser.add_argument('--debug', action='store_true', help='only do one epoch and displays at each iteration')
 
         # for training
         self.parser.add_argument('--corr_radius', type=int, default=4, help='corr_radius')
@@ -24,13 +21,9 @@ class TrainOptions(BaseOptions):
         self.parser.add_argument('--niter_decay', type=int, default=50, help='# of iter to linearly decay learning rate to zero')
         self.parser.add_argument('--beta1', type=float, default=0.5, help='momentum term of adam')
         self.parser.add_argument('--lr', type=float, default=0.000001, help='initial learning rate for adam')
-        self.parser.add_argument('--PFAFN_warp_checkpoint', type=str, help='load the pretrained model from the specified location')
-        self.parser.add_argument('--PFAFN_gen_checkpoint', type=str,  help='load the pretrained model from the specified location')
-        self.parser.add_argument('--PBAFN_warp_checkpoint', type=str, help='load the pretrained model from the specified location')
-        self.parser.add_argument('--PBAFN_gen_checkpoint', type=str,  help='load the pretrained model from the specified location')
-        self.parser.add_argument('--PBAFN_gen_cloth_checkpoint', type=str,  help='load the pretrained model from the specified location')
-        self.parser.add_argument('--PBAFN_gen_skin_checkpoint', type=str,  help='load the pretrained model from the specified location')
-        self.parser.add_argument('--PBAFN_D_seg_checkpoint', type=str,  help='load the pretrained model from the specified location')
+        self.parser.add_argument('--warp_checkpoint', type=str, help='load the pretrained model from the specified location')
+        self.parser.add_argument('--gen_checkpoint', type=str,  help='load the pretrained model from the specified location')
+
 
         self.parser.add_argument('--mixed_precision', default=False, action='store_true', help='use mixed precision')
         self.parser.add_argument('--num_heads', default=1, type=int, help='number of heads in attention and aggregation')

@@ -12,42 +12,36 @@ from util.util import generate_label_color, onechannel_to_one_hot
 from tqdm import tqdm
 import numpy as np
 
-
 opt = TrainOptions().parse()
-path = "runs/" + opt.name
-os.makedirs(path, exist_ok=True)
-
 
 def CreateDataset(opt):
     from data.aligned_dataset_test import AlignedDataset
-
     dataset = AlignedDataset()
     print("dataset [%s] was created" % (dataset.name()))
     dataset.initialize(opt)
     return dataset
-
 
 start_epoch, epoch_iter = 1, 0
 
 train_data = CreateDataset(opt)
 
 train_loader = DataLoader(
-    train_data, batch_size=opt.batchSize, shuffle=False, num_workers=4, pin_memory=True
+    train_data, batch_size=opt.batchSize, shuffle=False, num_workers=opt.nThreads, pin_memory=True
 )
 dataset_size = len(train_loader)
 warp_model = RAFD(opt, 45)
 
 warp_model.eval()
 warp_model.cuda()
-print("load warp model: ", opt.PBAFN_warp_checkpoint)
-load_checkpoint(warp_model, opt.PBAFN_warp_checkpoint)
+print("load warp model: ", opt.warp_checkpoint)
+load_checkpoint(warp_model, opt.warp_checkpoint)
 
 
 gen_model = MISS(29, 3)
 gen_model.eval()
 gen_model.cuda()
-print("load gen model: ", opt.PBAFN_gen_checkpoint)
-load_checkpoint(gen_model, opt.PBAFN_gen_checkpoint)
+print("load gen model: ", opt.gen_checkpoint)
+load_checkpoint(gen_model, opt.gen_checkpoint)
 
 criterionL1 = nn.L1Loss()
 criterionVGG = VGGLoss()
@@ -138,7 +132,7 @@ for epoch in range(1, 2):
         preserved_skin_image = source_img * preserved_skin_mask
         added_image = added_image * (1 - preserved_skin_mask) + preserved_skin_image
 
-        gen_inputs = g_refine_input = torch.cat(
+        gen_inputs = torch.cat(
             [
                 added_image,
                 warped_prod_edge,

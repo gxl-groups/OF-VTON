@@ -44,14 +44,12 @@ class RAFD(nn.Module):
         self.hidden_dim = hdim = 128
         self.context_dim = cdim = 128
         args.corr_levels = 4
-        print('corr_radius: ', args.corr_radius)
 
         self.old_lr = args.lr
         self.old_lr_warp = args.lr * 0.2
 
         if 'dropout' not in self.args:
             self.args.dropout = 0
-            print('no dropout')
 
 
 
