@@ -40,4 +40,4 @@ Download the models below and put it under `checkpoint/`
 [OFVTON-checkpoints](https://drive.google.com/file/d/1mg8ogkEee3u1WeFJEfmuJkPqQ9pQqWUT/view?usp=share_link)
 
 ## Test the model
-`python test.py --name test`
+`python test.py --name test1027 --warp_checkpoint /data2/zjk/PF/checkpoints/train_GMA_refine_4cmaskStage1e2e1xSmoothnoD_holehandAgnostic3AttenmaskUnet_2xmask_avgcontentL_AdamW_bs8_iter5/warp_from_Unet.pth --gen_checkpoint /data2/zjk/PF/checkpoints/train_GMA_refine_4cmaskStage1e2e1xSmoothnoD_holehandAgnostic3AttenmaskUnet_2xmask_avgcontentL_AdamW_bs8_iter5/PBAFN_gen_epoch_101.pth  --dataroot `

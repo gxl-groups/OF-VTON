@@ -163,7 +163,6 @@ class AlignedDataset(BaseDataset):
         source_img_agnostic_tensor = source_img_agnostic_tensor * (1 - source_other_clothes_mask_tensor) + source_preserve_img_other
         source_img_agnostic_tensor = source_img_agnostic_tensor * (1 - source_hand_mask_tensor) + source_preserve_img_hand
 
-        grid_image = self.grid_image
 
         # set label 14 15 10 5 6 7 to 0
         source_parsing_cloth_agnostic_label = source_parsing_tensor.clone()
@@ -196,7 +195,7 @@ class AlignedDataset(BaseDataset):
                           'person_name': person_name, 'source_arm_parsing_2label': source_arm_parsing_2label,
                           'source_arm_parsing_3label': source_arm_parsing_3label, 'source_tosor_img_tensor': source_tosor_img_tensor, 'source_background_img': source_background_img,
                           'source_arm_parsing_4label': source_arm_parsing_4label, 'source_face_mask': source_face_mask_tensor, 'source_other_clothes_mask': source_other_clothes_mask_tensor,
-                          'source_img_agnostic': source_img_agnostic_tensor, 'source_arm_parsing_5label': source_arm_parsing_5label, 'grid_image': grid_image, 'source_densepose_arm_cat': source_densepose_arm_cat_tensor,
+                          'source_img_agnostic': source_img_agnostic_tensor, 'source_arm_parsing_5label': source_arm_parsing_5label, 'source_densepose_arm_cat': source_densepose_arm_cat_tensor,
                           'source_dense_armhand_3channel': dense_preserve_mask_3channel_tensor, 'source_tosor_mask_tensor': source_tosor_mask_tensor,
                           'source_arm_mask': source_arm_mask}
 

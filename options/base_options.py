@@ -23,6 +23,7 @@ class BaseOptions():
         self.parser.add_argument('--fineSize', type=int, default=512, help='then crop to this size')
 
         # for setting inputs
+        self.parser.add_argument('--dataroot', type=str,default='./dataset/VITON_traindata')
         self.parser.add_argument('--nThreads', default=4, type=int, help='# threads for loading data')
 
         # for displays

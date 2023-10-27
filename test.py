@@ -117,8 +117,8 @@ for epoch in range(1, 2):
         )
         fake_arm_parsing_mask_without_cloth = onechannel_to_one_hot(
             fake_arm_parsing_mask_without_cloth, 4
-        )
-        fake_arm_parsing_mask = onechannel_to_one_hot(fake_arm_parsing_mask, 5)
+        ).permute(0, 2, 1, 3)
+        fake_arm_parsing_mask = onechannel_to_one_hot(fake_arm_parsing_mask, 5).permute(0, 2, 1, 3)
 
         added_image = (
             source_img_agnostic * (1 - warped_prod_edge)

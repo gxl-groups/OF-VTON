@@ -2,7 +2,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from models.update import GMAUpdateBlock
+from models.update import UpdateBlock
 from models.extractor import BasicEncoder
 from models.corr import CorrBlock
 from util.util import bilinear_sampler, coords_grid, upflow8
@@ -58,7 +58,7 @@ class RAFD(nn.Module):
         self.fnet = BasicEncoder(input_dim=3, output_dim=256, norm_fn='batch', dropout=args.dropout)
         self.fnet2 = BasicEncoder(input_dim=input_channels, output_dim=256, norm_fn='batch', dropout=args.dropout)
         self.cnet = BasicEncoder(input_dim=3, output_dim=hdim + cdim, norm_fn='batch', dropout=args.dropout)
-        self.update_block = GMAUpdateBlock(self.args, hidden_dim=hdim)
+        self.update_block = UpdateBlock(self.args, hidden_dim=hdim)
         self.att = Attention(args=self.args, dim=cdim, heads=self.args.num_heads, max_pos_size=160, dim_head=cdim)
 
         netMain_layer1 = torch.nn.Sequential(torch.nn.Conv2d(2 * 256, out_channels=128, kernel_size=3, stride=1, padding=1), torch.nn.LeakyReLU(inplace=False, negative_slope=0.1),
