@@ -21,7 +21,7 @@ proposed OF-VTON significantly outperforms existing state-of-theart methods by m
 ![baseline](asserts/tryon_baseline.png)
 
 ## Environment
-* pytorch(1.4.0)
+* pytorch(1.10.0)
 * torchvision
 * scipy
 * Pillow
