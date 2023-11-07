@@ -40,4 +40,4 @@ Download the models below and put it under `checkpoint/`
 [OFVTON-checkpoints](https://drive.google.com/file/d/1mg8ogkEee3u1WeFJEfmuJkPqQ9pQqWUT/view?usp=share_link)
 
 ## Test the model
-`python test.py --name test --warp_checkpoint ./checkpoints/warp_from_Unet.pth --gen_checkpoint ./checkpoints/gen.pth  --dataroot ./datasets/`
+`python test.py --name test --warp_checkpoint ./checkpoints/warp.pth --gen_checkpoint ./checkpoints/gen.pth  --dataroot ./datasets/`
