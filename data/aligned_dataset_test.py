@@ -15,7 +15,7 @@ class AlignedDataset(BaseDataset):
         self.person_names = []
         self.cloth_names = []
         opt.phase = 'test'
-        with open(os.path.join(self.root, 'test_pairs.txt'), 'r') as f:
+        with open(os.path.join(self.root, 'viton_test_pairs.txt'), 'r') as f:
             for line in f.readlines():
                 line = line.strip()
                 A, B = line.split(' ')
