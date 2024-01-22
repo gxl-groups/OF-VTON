@@ -31,3 +31,5 @@ Thumbs.db
 datasets/
 checkpoints/
 VITON_testdata.zip
+
+__pycache__

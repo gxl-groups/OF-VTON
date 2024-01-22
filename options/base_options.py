@@ -16,9 +16,15 @@ class BaseOptions():
         self.parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='models are saved here')
         self.parser.add_argument('--verbose', action='store_true', default=False, help='toggles verbose')
         self.parser.add_argument('--use_dropout', action='store_true', help='use dropout for the generator')
-
+        self.parser.add_argument('--log_dir', type=str, default="./log" )
+        self.parser.add_argument('--datamode', type=str, default="train" )
+        self.parser.add_argument('--fine_height', type=int, default=256 )
+        self.parser.add_argument('--fine_width', type=int, default=192 )
+        self.parser.add_argument('--is_train', type=bool, default=True)
+        self.parser.add_argument('--tryon_list', type=str, default="No list")
+        self.parser.add_argument('--model', type=str, default="warp" )
         # input/output sizes       
-        self.parser.add_argument('--batchSize', type=int, default=4, help='input batch size')
+        self.parser.add_argument('--batchSize', type=int, default=16, help='input batch size')
         self.parser.add_argument('--loadSize', type=int, default=256, help='scale images to this size')
         self.parser.add_argument('--fineSize', type=int, default=512, help='then crop to this size')
 
