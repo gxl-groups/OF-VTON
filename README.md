@@ -41,3 +41,15 @@ Download the models below and put it under `checkpoint/`
 
 ## Test the model
 `python test.py --name test --warp_checkpoint ./checkpoints/warp.pth --gen_checkpoint ./checkpoints/gen.pth  --dataroot ./datasets/`
+
+## Citation
+If any part of our paper and code is helpful to your work, please generously cite with:
+```
+@article{gu2024recurrent,
+  title={Recurrent Appearance Flow for Occlusion-Free Virtual Try-On},
+  author={Gu, Xiaoling and Zhu, Junkai and Wong, Yongkang and Wu, Zizhao and Yu, Jun and Fan, Jianping and Kankanhalli, Mohan S},
+  journal={ACM Transactions on Multimedia Computing, Communications and Applications},
+  year={2024},
+  publisher={ACM New York, NY}
+}
+```
